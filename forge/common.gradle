@@ -14,7 +14,7 @@ repositories {
     mavenCentral()
     maven { url 'https://maven.nova-committee.cn/releases'}
     maven { url 'https://maven.mohistmc.com/' }
-
+    maven { url = "https://jitpack.io" }
 }
 
 dependencies {
@@ -26,7 +26,7 @@ dependencies {
     implementation forgeRuntimeLibrary ("dev.vankka:dependencydownload-runtime:1.3.1") {exclude module: 'jar-relocator'}
     implementation forgeRuntimeLibrary ("dev.vankka:dependencydownload-common:1.3.1")
     implementation forgeRuntimeLibrary (include("cn.evole.onebot:OneBot-Client:${onebot_client_version}")){transitive = false}
-    implementation forgeRuntimeLibrary (include("cn.evole.config:AtomConfig-Toml:${toml_version}")){transitive = false}
+    implementation forgeRuntimeLibrary (include("com.github.cnlimiter:AtomConfig:toml-SNAPSHOT")){transitive = false}
 
     if (mcVersion == 11605) include ("org.slf4j:slf4j-api:2.0.7")
     compileOnly ("org.projectlombok:lombok:1.18.24")
