@@ -49,6 +49,9 @@ public class I18n {
         try {
             String translation1 = translations.get(key);
             if (translation1 != null) {
+                for (int i = 0; i < args.length; i++) {
+                    args[i] = translations.get(args[i]);
+                }
                 return String.format(translation1, args);
             } else {
                 //#if MC >= 11600
@@ -57,6 +60,9 @@ public class I18n {
                 //$$ String translation2 = Language.getInstance().getElement(key);
                 //#endif
                 if (!translation2.equals(key)) {
+                    for (int i = 0; i < args.length; i++) {
+                        args[i] = translations.get(args[i]);
+                    }
                     return String.format(translation2, args);
                 } else {
                     return "TranslateError{\"key\":\"" + key + "\",\"args\":" + Arrays.toString(args) + "}";
